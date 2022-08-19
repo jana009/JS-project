@@ -48,5 +48,13 @@ cityField.addEventListener('submit',e=>{
     updateCity(cityName)
     .then(data=>updateUI(data))
     .catch(err=>console.error(err));
+    localStorage.setItem('city',cityName);
+
     
 });
+
+if(localStorage.getItem('city')){
+    updateCity(localStorage.getItem('city'))
+    .then(data=>updateUI(data))
+    .catch(err=>console.error(err));
+}
